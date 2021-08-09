@@ -1,5 +1,5 @@
 # AutoMap for non-human VCF files
-Tool to find regions of homozygosity (ROHs) from sequencing data of non-human samples.
+Tool to find regions of homozygosity (ROHs) from sequencing data of non-human samples (without repeats file needed).
 
 AutoMap for human data is available here: [[Link](https://github.com/mquinodo/AutoMap)] 
 
