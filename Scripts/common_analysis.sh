@@ -94,7 +94,6 @@ fi
 # produce output pdf file
 size=$(more $file | grep INFO | awk -F " " '{print $3}' )
 outputR=$res/$out/$out.HomRegions.pdf
-Rscript $here/make_graph_common.R $out $file $outputR $size 2> $here.log
 
 echo "## There is $tot2 Mb are in common Homozygous Regions (autosomal chromosomes) after analysis. ##"
 
