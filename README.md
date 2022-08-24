@@ -38,9 +38,9 @@ bash AutoMap_v1.0.sh --vcf VCF1,VCF2,VCF3 --id ID1,ID2,ID3 --out output_director
 ```
 
 ### Common ROHs to multiple individuals 
-Autosomal ROHs common to multiple individuals can be computed with the --common option when multiple samples are analyzed simultaneously:
+Autosomal ROHs common to multiple individuals can be computed with the --common option when multiple samples are analyzed simultaneously (--id had to be used):
 ```
-bash AutoMap_v1.0.sh --vcf VCF1,VCF2,VCF3 --out output_directory --common [other options]
+bash AutoMap_v1.0.sh --vcf VCF1,VCF2,VCF3 --id ID1,ID2,ID3 --out output_directory --common [other options]
 ```
 
 #### Required arguments
