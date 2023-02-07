@@ -23,24 +23,24 @@ This tool contains two main features: detection of ROHs for one or multiple indi
 The main script AutoMap_v1.0.sh takes as input a VCF file which needs to contain GT (genotype) and AD (or AO) (allelic depths for the ref and alt alleles) or DP4 (number of high-quality ref-forward bases, ref-reverse, alt-forward and alt-reverse bases) fields for variants. The output is a text file containing the detected ROHs and a pdf file with the ROHs graphical representation.
 It is called with bash:
 ```
-bash AutoMap_v1.0.sh --vcf VCF_file --out output_directory [other options]
+bash AutoMap_v1.2_nonhuman.sh --vcf VCF_file --out output_directory [other options]
 ```
 The approximate computation time per sample is 30 seconds for exome and few minutes for genome sequencing data.
 
 ### AutoMap for multiple individuals
 The same script AutoMap_v1.0.sh can be used to compute ROHs for a list of individuals. VCFs files must be specified in --vcf option separated with commas.
 ```
-bash AutoMap_v1.0.sh --vcf VCF1,VCF2,VCF3 --out output_directory [other options]
+bash AutoMap_v1.2_nonhuman.sh --vcf VCF1,VCF2,VCF3 --out output_directory [other options]
 ```
 Ids can be specified through --id option also separated with commas. If IDs are not specified, they will be taken from VCF files directly.
 ```
-bash AutoMap_v1.0.sh --vcf VCF1,VCF2,VCF3 --id ID1,ID2,ID3 --out output_directory [other options]
+bash AutoMap_v1.2_nonhuman.sh --vcf VCF1,VCF2,VCF3 --id ID1,ID2,ID3 --out output_directory [other options]
 ```
 
 ### Common ROHs to multiple individuals 
 Autosomal ROHs common to multiple individuals can be computed with the --common option when multiple samples are analyzed simultaneously:
 ```
-bash AutoMap_v1.0.sh --vcf VCF1,VCF2,VCF3 --out output_directory --common [other options]
+bash AutoMap_v1.2_nonhuman.sh --vcf VCF1,VCF2,VCF3 --out output_directory --common [other options]
 ```
 
 #### Required arguments
@@ -93,7 +93,7 @@ The output will be the same as individual output with an additional one containi
 A testing VCF with random variants can be found in the Test folder. The following command can be done to test AutoMap:
 ```
 AUTOMAP_HOME=<path/to/automap/script>
-bash $AUTOMAP_HOME/AutoMap_v1.0.sh
+bash $AUTOMAP_HOME/AutoMap_v1.2_nonhuman.sh
   --vcf $AUTOMAP_HOME/Test/TestSample.vcf
   --out $AUTOMAP_HOME/Results-test
 ```
