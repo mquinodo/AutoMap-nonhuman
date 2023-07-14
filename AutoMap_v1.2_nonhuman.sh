@@ -252,7 +252,7 @@ if [ "$multivcf" == "Yes" ]; then
         multivcf3
     fi
 
-    nb="$(bcftools query -l $vcf 2> $here.log | wc -l | cut -d" " -f1 )"
+    nb="$(bcftools query -l $vcf 2> $here/.log | wc -l | cut -d" " -f1 )"
 
     for (( k=0; k<$nb; k++ ))
     do
@@ -286,10 +286,10 @@ if [ "$multivcf" == "No" ]; then
 
         nbvar=$(grep -v "#" $vcf | grep -P "AD|DP4|AO" | grep GT | wc -l)
 
-        nb="$(bcftools query -l $vcf 2> $here.log | wc -l | cut -d" " -f1 )"
+        nb="$(bcftools query -l $vcf 2> $here/.log | wc -l | cut -d" " -f1 )"
         if [ "$nb" == "1" ]; then
             if [ -z "${id}" ]; then
-                id="$(bcftools query -l $vcf 2> $here.log)"
+                id="$(bcftools query -l $vcf 2> $here/.log)"
                 if [ "$k" == "0" ]; then
                     allid=$id
                 fi
@@ -334,7 +334,7 @@ if [ "$multivcf" == "No" ]; then
         if [ -s $out/$id/$id.clean.tsv ]; then
             :
         else 
-            perl $here/Scripts/parse_vcf_v1.1.pl $out/$id/$id.tsv $out/$id/$id.clean.tsv 2> $here.log
+            perl $here/Scripts/parse_vcf_v1.1.pl $out/$id/$id.tsv $out/$id/$id.clean.tsv 2> $here/.log
             rm $out/$id/$id.tsv
         fi
 
@@ -357,7 +357,7 @@ if [ "$multivcf" == "No" ]; then
         input=$out/$id/$id.clean.qual.sort.tsv
         output_path=$out/$id
         output=$output_path/$id.HomRegions
-        perl $here/Scripts/homo_regions.pl $input $output $panel $panelname $window $windowthres $here/Scripts/trimming.sh $maxgap $here/Scripts/extend.sh $extend 2> $here.log
+        perl $here/Scripts/homo_regions.pl $input $output $panel $panelname $window $windowthres $here/Scripts/trimming.sh $maxgap $here/Scripts/extend.sh $extend 2> $here/.log
 
         echo 
         echo "3) Filtering of regions found and output to text file"
@@ -416,7 +416,7 @@ if [ "$multivcf" == "No" ]; then
             echo "## Variant filtering parameters used: DP=$DP, percaltlow=$percaltlow, percalthigh=$percalthigh, binomial=$binomial, maxgap=$maxgap" >> $file;
             echo "## Other parameters used: window=$window, windowthres=$windowthres, minsize=$minsize, minvar=$minvar, minperc=$minperc, chrX=$chrx, extend=$extend" >> $file;
         fi
-        rm -f $out/$id/$id.clean* $out/$id/$id.HomRegions.homozygosity* $here.log $vcf.chr
+        rm -f $out/$id/$id.clean* $out/$id/$id.HomRegions.homozygosity* $here/.log $vcf.chr
     done
 
     # Regions common to all
@@ -443,4 +443,4 @@ if [ "$multivcf" == "No" ]; then
     fi
 fi
 
-rm -f $here.log
+rm -f $here/.log
